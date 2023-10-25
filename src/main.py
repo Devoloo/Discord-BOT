@@ -17,7 +17,7 @@ bot = commands.Bot(
     intents = intents # Set up basic permissions
 )
 
-bot.author_id = 0000000  # Change to your discord id
+bot.author_id = 163663821674643456  # Change to your discord id
 
 @bot.event
 async def on_ready():  # When the bot is ready
