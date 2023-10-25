@@ -82,7 +82,7 @@ async def xkcd(ctx):
         print(e.headers.get_content_type())
 
 @bot.command()
-async def poll(ctx, question, time_limit):
+async def poll(ctx, question, time_limit=None):
     poll_message = await ctx.send("@here " + question)
     await poll_message.add_reaction("👍")
     await poll_message.add_reaction("👎")
@@ -96,7 +96,7 @@ async def poll(ctx, question, time_limit):
                 thumbs_up = reaction.count
             elif str(reaction.emoji) == "👎":
                 thumbs_down = reaction.count
-        await ctx.send(f"Poll results for '{question}': 👍 {thumbs_up}, 👎 {thumbs_down}")
+        await ctx.send(f"Poll results for '{question}': 👍 {thumbs_up - 1}, 👎 {thumbs_down - 1}")
 
 
 @bot.command()
